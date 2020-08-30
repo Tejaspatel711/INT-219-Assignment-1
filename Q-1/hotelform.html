@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Booking</title>
+	<style>
+		body{
+			background-image: linear-gradient(brown, white);
+			background-repeat: no-repeat;
+		}
+		div{
+			margin-left: 35%;
+			margin-top: 2%;
+		}
+		td{
+			width: 200px;
+			padding: 0.7%;
+		}
+		input{
+			width: 300px;
+		}
+		input[type="radio"]{
+			width: auto;
+		}
+		.info{
+			height: 200px;
+			width: 350px;
+		}
+		hr{
+			margin-left: 0px;
+			width: 515px;
+		}
+		span{
+			color: blue;
+		}
+		#centerbutton {
+			margin-left: 250px;
+			justify-content: center;
+		}
+		button {
+				font-size: 16px;
+				transition-duration: 0.4s;
+				}
+
+			button:hover {
+  							background-color: #4CAF50;
+  							color: white;
+						  }
+	</style>
+	<script type="text/javascript">
+		function validate(){
+			var e = document.getElementById("select");
+			var uname = document.forms["booking"]["name"];
+			var umobile = document.forms["booking"]["mobile"];
+			var uemail = document.forms["booking"]["email"];
+			var uaddress = document.forms["booking"]["address"];
+			var utown = document.forms["booking"]["town"];
+			var ucity = document.forms["booking"]["city"];
+			var upeople = document.forms["booking"]["people"];
+			var urooms = document.forms["booking"]["rooms"];
+			var udate = document.forms["booking"]["date"];
+			var radios = document.forms["booking"]["Occupancy"];
+			var formValid = false;
+			var unights = document.forms["booking"]["nights"];
+			var usertitle = e.options[e.selectedIndex].text;
+			if(usertitle=="Select")
+			{
+			alert("Please select an apprpriate title!");
+			usertitle.focus();
+			return false;
+			}
+
+			if (uname.value == "") {
+				alert("Please Enter Your Name!");
+				uname.focus();
+				return false;
+			}
+
+			if (umobile.value == "") {
+				alert("PLease Enter Your Mobile Number!");
+				umobile.focus();
+				return false;
+			}
+			if (uemail.value == "") {
+				alert("PLease Enter Your valid Email!");
+				uemail.focus();
+				return false;
+			}
+			if (uaddress.value == "") {
+				alert("PLease Enter Your valid Street Address!");
+				uaddress.focus();
+				return false;
+			}
+			if (utown.value == "") {
+				alert("PLease Enter Name of Your Town!");
+				utown.focus();
+				return false;
+			}
+			if (ucity.value == "") {
+				alert("PLease Enter Name of Your City!");
+				ucity.focus();
+				return false;
+			}
+			if (upeople.value == "") {
+				alert("PLease Enter Number of People!");
+				upeople.focus();
+				return false;
+			}
+			if (urooms.value == "") {
+				alert("PLease Enter Number of rooms!");
+				urooms.focus();
+				return false;
+			}
+			if (udate.value == "") {
+				alert("PLease Enter Your Arriving Date!");
+				udate.focus();
+				return false;
+			}
+			if (unights.value == "") {
+				alert("PLease Enter Number of Nights!");
+				unights.focus();
+				return false;
+			}
+			var i = 0;
+		    while (!formValid && i < radios.length) {
+		        if (radios[i].checked) formValid = true;
+		        i++;        
+		    }
+		    if (!formValid) { 
+		    	alert("Must check One Occupancy!");
+		    	return formValid;
+		    }
+			
+		}
+	</script>
+</head>
+<body>
+	<div class="div1">
+			<h2>Booking Form</h2>
+			<hr color="black">
+			<h4 style="margin-top:0%";>Labels marked with <span>*</span> are required.</h4>
+		<form name="booking" onsubmit = "return(validate());">
+			<table>
+				<tr>
+					<td>Title<span>*</span></td>
+					<td>
+						<select id="select">
+							<option value="Select">Select</option>
+							<option>Mr</option>
+							<option>Mrs</option>
+							<option>Ms</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Full Name<span>*</span></td>
+					<td>
+						<input type="text" id="name" name="Full Name">
+					</td>
+				</tr>
+				<tr>
+					<td>Phone Number</td>
+					<td>
+						<input type="text" id="phone" name="Phone Number">
+					</td>
+				</tr>
+				<tr>
+					<td>Mobile Number<span>*</span></td>
+					<td>
+						<input type="text" id="mobile" name="Mobile Number">
+					</td>
+				</tr>
+				<tr>
+					<td>Email<span>*</span></td>
+					<td>
+						<input type="email" id="email" name="Email">
+					</td>
+				</tr>
+				<tr>
+					<td>Street Address<span>*</span></td>
+					<td>
+						<input type="text" id="address" name="Address">
+					</td>
+				</tr>
+				<tr>
+					<td>Town<span>*</span></td>
+					<td>
+						<input type="text" id="town" name="Town">
+					</td>
+				</tr>
+				<tr>
+					<td>City<span>*</span></td>
+					<td>
+						<input type="text" id="city" name="City">
+					</td>
+				</tr>
+				<tr>
+					<td>Number of People<span>*</span></td>
+					<td>
+						<input type="number" id="people" name="People" value="people">
+					</td>
+				</tr>
+				<tr>
+					<td>Number of Rooms<span>*</span></td>
+					<td>
+						<input type="number" id="rooms" name="Rooms">
+					</td>
+				</tr>
+				<tr>
+					<td>Arrival Date/Time<span>*</span></td>
+					<td>
+						<input type="datetime-local" id="date" name="date">
+					</td>
+				</tr>
+				<tr>
+					<td>Number of Nights<span>*</span></td>
+					<td>
+						<input type="number" id="nights" name="Nights">
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">Occupancy<span>*</span></td>
+					<td>
+						<input type="radio" id="Single" name="Occupancy" value="Single">
+						<label for="Single">Single</label><br>
+				        <input type="radio" id="Twin" name="Occupancy" value="Twin">
+				    	<label for="Twin">Twin</label><br>
+						<input type="radio" id="Double" name="Occupancy" value="Double">
+						<label for="Double">Double</label>
+					</td>
+				</tr>
+				<tr>
+					<td  valign="top">Additonal Info</td>
+					<td>
+						<textarea id="info" name="info" rows="6" cols="40"></textarea>
+					</td>
+				</tr>
+			</table>
+		<div id="centerbutton">
+			<button align="center">Submit Form</button>
+		</div>
+		</form>
+	</div>
+</body>
+</html>
